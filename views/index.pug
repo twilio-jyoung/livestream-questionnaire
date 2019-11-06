@@ -1,0 +1,26 @@
+extends layout
+
+block navbar
+  nav.navbar.fixed-top.navbar-dark.bg-dark
+    a(class='navbar-brand', href="#")
+      img(src="https://www.developerweek.com/Austin/wp-content/uploads/2019/08/DWA-Hero.png", alt="alt", class="d-inline-block align-top", width="200px")
+    span.navbar-text#connection_status
+      span
+        span connecting...: 
+        i.fa.fa-spinner.fa-pulse
+
+block body
+  .container-fluid
+    .row
+      .col-md-6.bordered
+        div.canvas_container
+          canvas#spaces_v_tabs
+      .col-md-6.bordered
+        div.canvas_container
+          canvas#influencer_person
+    .row
+      .col-md-6.bordered
+        div.canvas_container
+          canvas#influencer_company
+      .col-md-6.bordered
+        div#country_map
