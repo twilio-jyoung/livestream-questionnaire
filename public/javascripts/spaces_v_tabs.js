@@ -12,6 +12,7 @@
 // },
 
 var spaces_v_tabs = (function() {
+  console.log("spaces_v_tabs");
   var chart = null;
   var rendered = false;
   var data = {
@@ -29,7 +30,7 @@ var spaces_v_tabs = (function() {
     }
   }
   function renderChart() {
-    console.log("charts - rendering spaces_v_tabs chart");
+    // console.log("charts - rendering spaces_v_tabs chart");
     var ctx = document.getElementById("spaces_v_tabs").getContext("2d");
     chart = new Chart(ctx, {
       type: "pie",
@@ -50,7 +51,7 @@ var spaces_v_tabs = (function() {
     });
   }
   function updateChart(input) {
-    console.log("charts - updating spaces_v_tabs chart");
+    // console.log("charts - updating spaces_v_tabs chart");
 
     var index = input == "spaces" ? 0 : 1;
     chart.data.datasets[0].data[index]++;

@@ -1,0 +1,43 @@
+{
+  "actions": [
+    {
+      "say": "Welcome to Autopilot."
+    },
+    {
+      "collect": {
+        "name": "collect_developer_questions",
+        "questions": [
+          {
+            "question": "First off, I need to ask the most important question...  spaces or tabs?  There is only one right answer.",
+            "name": "spaces_v_tabs",
+            "validate": {
+              "allowed_values": {
+                "list": ["spaces", "tabs"]
+              }
+            }
+          },
+          {
+            "question": "Which PERSON will be the largest tech influencer in 2020?  Give me their last name, so I can more easily normalize. It's also totally acceptable to say \"me\".",
+            "name": "influencer_person",
+            "type": "Twilio.LAST_NAME"
+          },
+          {
+            "question": "Which COMPANY will be the largest tech influencer in 2020? Again, totally acceptable to say \"my company\"",
+            "name": "influencer_company"
+          },
+          {
+            "question": "What country would you rather be in right now?  DevWeek is awesome, but if I had to pick between here and Fiji, I'd be in Fiji.",
+            "name": "country",
+            "type": "Twilio.COUNTRY"
+          }
+        ],
+        "on_complete": {
+          "redirect": {
+            "method": "POST",
+            "uri": "{{REPLACE WITH FUNCTION URL AFTER GENERATING}}"
+          }
+        }
+      }
+    }
+  ]
+}

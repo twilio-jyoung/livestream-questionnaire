@@ -12,7 +12,7 @@
 // },
 
 var influencer_person = (function() {
-  console.log("init ip");
+  console.log("influencer person");
   var rendered = false;
 
   var data = {};
@@ -39,7 +39,7 @@ var influencer_person = (function() {
   var chart = null;
 
   function renderChart() {
-    console.log("charts - rendering influencer_person chart");
+    // console.log("charts - rendering influencer_person chart");
     var ctx = document.getElementById("influencer_person").getContext("2d");
     chart = new Chart(ctx, {
       type: "horizontalBar",
@@ -48,7 +48,29 @@ var influencer_person = (function() {
         datasets: [
           {
             data: Object.values(data),
-            backgroundColor: ["#F22F46", "#0D122B", "#36D576", "#F47C22", "#EFDC2E", "#8C5BD8", "#21A4C9"]
+            backgroundColor: [
+              "#F22F46",
+              "#0D122B",
+              "#36D576",
+              "#F47C22",
+              "#EFDC2E",
+              "#8C5BD8",
+              "#21A4C9",
+              "#F22F46",
+              "#0D122B",
+              "#36D576",
+              "#F47C22",
+              "#EFDC2E",
+              "#8C5BD8",
+              "#21A4C9",
+              "#F22F46",
+              "#0D122B",
+              "#36D576",
+              "#F47C22",
+              "#EFDC2E",
+              "#8C5BD8",
+              "#21A4C9"
+            ]
           }
         ]
       },
@@ -71,7 +93,7 @@ var influencer_person = (function() {
   }
 
   function updateChart(person, isNew) {
-    console.log("charts - updating influencer_person chart with " + person);
+    // console.log("charts - updating influencer_person chart with " + person);
 
     if (isNew) {
       chart.data.labels.push(person);

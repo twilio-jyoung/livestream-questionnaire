@@ -12,14 +12,10 @@
 // },
 
 var country = (function() {
-  console.log("init country");
-
-  // initializing map shiz
-  console.log("charts - initializing country chart");
-
+  console.log("country");
   google.charts.load("current", {
     "packages": ["geochart"],
-    "mapsApiKey": "AIzaSyDEyfOQrycakL4z0P9ImSzF92MXKPTnUIU"
+    "mapsApiKey": google_api_key
   });
   google.charts.setOnLoadCallback(renderChart);
 
@@ -40,7 +36,7 @@ var country = (function() {
   var chart = null;
 
   function renderChart() {
-    console.log("charts - rendering country chart");
+    // console.log("charts - rendering country chart");
 
     var data = google.visualization.arrayToDataTable(getDataTableData());
     var options = {
