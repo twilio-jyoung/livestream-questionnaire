@@ -12,12 +12,9 @@
 // },
 
 var influencer_person = (function() {
-  console.log("influencer person");
   var rendered = false;
 
   var data = {};
-
-  console.log(data);
 
   function aggregate(person) {
     var newPerson = false;
@@ -39,7 +36,6 @@ var influencer_person = (function() {
   var chart = null;
 
   function renderChart() {
-    // console.log("charts - rendering influencer_person chart");
     var ctx = document.getElementById("influencer_person").getContext("2d");
     chart = new Chart(ctx, {
       type: "horizontalBar",

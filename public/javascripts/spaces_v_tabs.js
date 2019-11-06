@@ -12,7 +12,6 @@
 // },
 
 var spaces_v_tabs = (function() {
-  console.log("spaces_v_tabs");
   var chart = null;
   var rendered = false;
   var data = {
@@ -30,7 +29,6 @@ var spaces_v_tabs = (function() {
     }
   }
   function renderChart() {
-    // console.log("charts - rendering spaces_v_tabs chart");
     var ctx = document.getElementById("spaces_v_tabs").getContext("2d");
     chart = new Chart(ctx, {
       type: "pie",

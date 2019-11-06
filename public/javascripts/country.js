@@ -12,7 +12,6 @@
 // },
 
 var country = (function() {
-  console.log("country");
   google.charts.load("current", {
     "packages": ["geochart"],
     "mapsApiKey": google_api_key
@@ -21,13 +20,11 @@ var country = (function() {
 
   var data = {};
 
-  console.log(data);
-
   function aggregate(country) {
-    if (data[country.name]) {
-      data[country.name].count++;
+    if (data[country]) {
+      data[country]++;
     } else {
-      data[country.name] = { location: country.location, count: 1 };
+      data[country] = 1;
     }
     getDataTableData();
     renderChart();
@@ -36,14 +33,12 @@ var country = (function() {
   var chart = null;
 
   function renderChart() {
-    // console.log("charts - rendering country chart");
-
     var data = google.visualization.arrayToDataTable(getDataTableData());
     var options = {
       backgroundColor: "#0D122B",
       colorAxis: { colors: ["#FCCBD1", "#F22F46"] },
-      keepAspectRatio: true,
-      legend: "none"
+      keepAspectRatio: true
+      // legend: "none"
     };
     chart = new google.visualization.GeoChart(document.getElementById("country_map"));
     chart.draw(data, options);
@@ -55,8 +50,8 @@ var country = (function() {
 
     for (var country in data) {
       if (data.hasOwnProperty(country)) {
-        var element = data[country];
-        result.push([country, element.count]);
+        var count = data[country];
+        result.push([country, count]);
       }
     }
 
