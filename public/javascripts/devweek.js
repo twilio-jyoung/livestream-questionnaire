@@ -1,3 +1,5 @@
+var responseCount = 0;
+
 var syncClient;
 $.getJSON("https://wenge-squirrel-9758.twil.io/sync-token", function(tokenResponse) {
   syncClient = new Twilio.Sync.Client(tokenResponse.token, { logLevel: "info" });
@@ -13,6 +15,9 @@ $.getJSON("https://wenge-squirrel-9758.twil.io/sync-token", function(tokenRespon
 
       // iterate through all pages of the map (50 items each) and aggregate answers
       var pageHandler = function(paginator) {
+        responseCount = paginator.items.length;
+        console.log(`Response Count: ${responseCount} @ Page Load`);
+
         paginator.items.forEach(function(item) {
           // this is where the magic happens.
           // console.log(item.value);
@@ -29,7 +34,8 @@ $.getJSON("https://wenge-squirrel-9758.twil.io/sync-token", function(tokenRespon
 
       // subscribe to updates to show realtime event streams
       map.on("itemAdded", function(args) {
-        console.log("a new item was added to the map...");
+        responseCount++;
+        console.log(`Response Count: ${responseCount}.  Item Added - `, args.item.value);
         aggregateData(args.item.value);
       });
     })

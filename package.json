@@ -15,7 +15,8 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
-    "twilio": "^3.37.0"
+    "twilio": "^3.37.0",
+    "clean-css": ">=4.1.11"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
