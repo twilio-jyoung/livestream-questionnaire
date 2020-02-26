@@ -16,12 +16,12 @@ $.getJSON("https://wenge-squirrel-9758.twil.io/sync-token", function(tokenRespon
       // iterate through all pages of the map (50 items each) and aggregate answers
       var pageHandler = function(paginator) {
         responseCount = paginator.items.length;
-        console.log(`Response Count: ${responseCount} @ Page Load`);
+        // console.log(`Response Count: ${responseCount} @ Page Load`);
         $("#participant_count").html(`<span>Participants: ${responseCount}</span>`);
 
         paginator.items.forEach(function(item) {
           // this is where the magic happens.
-          console.log(item.value);
+          // console.log(item.value);
           aggregateData(item.value);
         });
         return paginator.hasNextPage ? paginator.nextPage().then(pageHandler) : null;
@@ -35,7 +35,7 @@ $.getJSON("https://wenge-squirrel-9758.twil.io/sync-token", function(tokenRespon
 
       // subscribe to updates to show realtime event streams
       map.on("itemAdded", function(args) {
-        console.log("itemAdded");
+        // console.log("itemAdded");
         responseCount++;
         console.log(`Response Count: ${responseCount}.  Item Added - `, args.item.value);
         $("#participant_count").html(`<span>Participants: ${responseCount}</span>`);
@@ -43,10 +43,7 @@ $.getJSON("https://wenge-squirrel-9758.twil.io/sync-token", function(tokenRespon
       });
 
       map.on("itemUpdated", function(args) {
-        console.log("item_updated");
-        console.log(args);
-        console.log("key", args.item.key);
-        console.log("JSON Data: ", args.item.value);
+        // console.log("item_updated");
         aggregateData(args.item.value, true);
       });
     })
