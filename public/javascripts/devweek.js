@@ -9,7 +9,7 @@ $.getJSON("https://wenge-squirrel-9758.twil.io/sync-token", function(tokenRespon
   });
 
   syncClient
-    .map("MPc483cbc25d1e41b7b6da376047ff2002")
+    .map("MP4aeeb8e1f7d9465db44a447f1ce5b4e0")
     .then(function(map) {
       // console.log("map opened successfully");
 
@@ -57,28 +57,28 @@ var map_country = new Map();
 function aggregateData(data, isUpdate = false) {
   if (isUpdate) {
     // we only want to update the most recent answers, not re-aggregate answers already accounted for in previous updates, so this is a bit weird...
-    if (data.question_4) {
-      country.aggregate(data.question_4);
-    } else if (data.question_3) {
-      influencer_company.aggregate(data.question_3);
-    } else if (data.question_2) {
-      influencer_person.aggregate(data.question_2);
-    } else if (data.question_1) {
-      channel_preference.aggregate(data.question_1);
+    if (data.destination) {
+      country.aggregate(data.destination);
+    } else if (data.influencer_company) {
+      influencer_company.aggregate(data.influencer_company);
+    } else if (data.influencer_person) {
+      influencer_person.aggregate(data.influencer_person);
+    } else if (data.channel_preference) {
+      channel_preference.aggregate(data.channel_preference);
     }
   } else {
     // we want to add as many questions as are answered
-    if (data.question_1) {
-      channel_preference.aggregate(data.question_1);
+    if (data.channel_preference) {
+      channel_preference.aggregate(data.channel_preference);
     }
-    if (data.question_2) {
-      influencer_person.aggregate(data.question_2);
+    if (data.influencer_person) {
+      influencer_person.aggregate(data.influencer_person);
     }
-    if (data.question_3) {
-      influencer_company.aggregate(data.question_3);
+    if (data.influencer_company) {
+      influencer_company.aggregate(data.influencer_company);
     }
-    if (data.question_4) {
-      country.aggregate(data.question_4);
+    if (data.destination) {
+      country.aggregate(data.destination);
     }
   }
 
