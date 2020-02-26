@@ -4,6 +4,9 @@ block navbar
   nav.navbar.fixed-top.navbar-dark.bg-dark
     a(class='navbar-brand', href="#")
       img(src="https://www.developerweek.com/Austin/wp-content/uploads/2019/08/DWA-Hero.png", alt="alt", class="d-inline-block align-top", width="200px")
+    span.navbar-text#participant_count
+      span
+        span Participants: 0
     span.navbar-text#connection_status
       span
         span connecting...: 
@@ -14,7 +17,7 @@ block body
     .row
       .col-md-6.bordered
         div.canvas_container
-          canvas#spaces_v_tabs
+          canvas#question_1
       .col-md-6.bordered
         div.canvas_container
           canvas#influencer_person
