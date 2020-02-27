@@ -46,8 +46,7 @@ var channel_preference = (function() {
     });
   }
   function updateChart(input) {
-    console.log("charts - updating channel_preference chart");
-    console.log(chart.data.datasets[0].data);
+    // console.log("charts - updating channel_preference chart");
 
     let index = null;
 
