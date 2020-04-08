@@ -5,7 +5,7 @@
 //   "question_4":"Fiji"
 // }
 
-var channel_preference = (function() {
+var channel_preference = (function () {
   var chart = null;
   var rendered = false;
   var data = {
@@ -13,7 +13,7 @@ var channel_preference = (function() {
     chat: 0,
     phone: 0,
     push: 0,
-    email: 0
+    email: 0,
   };
 
   function aggregate(input) {
@@ -26,7 +26,7 @@ var channel_preference = (function() {
     }
   }
   function renderChart() {
-    var ctx = document.getElementById("question_1").getContext("2d");
+    var ctx = document.getElementById("channel_preference").getContext("2d");
     chart = new Chart(ctx, {
       type: "pie",
       data: {
@@ -34,15 +34,15 @@ var channel_preference = (function() {
         datasets: [
           {
             data: Object.values(data),
-            backgroundColor: ["#F22F46", "#0D122B", "#36D576", "#F47C22", "#EFDC2E"]
-          }
-        ]
+            backgroundColor: ["#F22F46", "#0D122B", "#36D576", "#F47C22", "#EFDC2E"],
+          },
+        ],
       },
       options: {
         legend: {
-          position: "right"
-        }
-      }
+          position: "right",
+        },
+      },
     });
   }
   function updateChart(input) {
@@ -73,6 +73,6 @@ var channel_preference = (function() {
   }
 
   return {
-    aggregate: aggregate
+    aggregate: aggregate,
   };
 })();

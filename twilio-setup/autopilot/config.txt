@@ -1,0 +1,4 @@
+Navigate to your autopilot webhooks configuration page
+Set the callback URL = to the /livestream_questionnaire function
+Check the "onDialogueStart" and "onCollectAttempt" boxes
+Save

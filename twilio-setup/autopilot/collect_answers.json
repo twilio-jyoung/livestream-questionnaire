@@ -1,18 +1,15 @@
 {
   "actions": [
     {
-      "say": "Welcome to Autopilot."
-    },
-    {
       "collect": {
-        "name": "collect_developer_questions",
+        "name": "collect_answers",
         "questions": [
           {
-            "question": "First off, I need to ask the most important question...  spaces or tabs?  There is only one right answer.",
-            "name": "spaces_v_tabs",
+            "question": "Which communication channel do you prefer?  Text, Chat, Phone, Push, or Email?",
+            "name": "channel_preference",
             "validate": {
               "allowed_values": {
-                "list": ["spaces", "tabs"]
+                "list": ["text", "chat", "phone", "email", "push"]
               }
             }
           },
@@ -26,15 +23,15 @@
             "name": "influencer_company"
           },
           {
-            "question": "What country would you rather be in right now?  DevWeek is awesome, but if I had to pick between here and Fiji, I'd be in Fiji.",
-            "name": "country",
+            "question": "What country would you rather be in right now? If I was a human, I'd be in Fiji.",
+            "name": "destination",
             "type": "Twilio.COUNTRY"
           }
         ],
         "on_complete": {
           "redirect": {
             "method": "POST",
-            "uri": "{{REPLACE WITH FUNCTION URL AFTER GENERATING}}"
+            "uri": "<host>/redirect_to_goodbye"
           }
         }
       }

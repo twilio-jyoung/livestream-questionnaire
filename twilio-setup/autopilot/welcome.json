@@ -1,0 +1,10 @@
+{
+  "actions": [
+    {
+      "say": "Welcome to Autopilot!"
+    },
+    {
+      "redirect": "task://collect_answers"
+    }
+  ]
+}
